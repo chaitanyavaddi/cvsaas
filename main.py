@@ -14,13 +14,13 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 # CORS configuration
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=["*"],
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Include routers
 app.include_router(home_router, tags=["auth"])
