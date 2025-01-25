@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md text-center">
+        <h1 class="text-3xl font-bold mb-6">Welcome to Your Dashboard</h1>
+        <p class="mb-6">You have successfully logged in!</p>
+        <a 
+            href="/logout" 
+            class="bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700"
+        >
+            Logout
+        </a>
+    </div>
+</div>
+{% endblock %}
