@@ -5,10 +5,13 @@ from app.auth.routes import auth_router, home_router
 from app.dashboard.routes import dashboard_router
 from app.users.routes import users_router
 from utils.auth import get_current_user
+from fastapi.middleware.gzip import GZipMiddleware
 
 app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
+
+app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 # CORS configuration
 # app.add_middleware(

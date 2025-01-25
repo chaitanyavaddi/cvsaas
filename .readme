@@ -1,12 +1,10 @@
-
-
-
-# How did I setup?
-# Download tailwind standalone v3 .exe from "https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.0.0"
+# How did made this boilerplate?
+# Download tailwind standalone v3 .exe from "https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.4.16"
 # Remmebr, in v4 taiwind init command was removed
 
 # To Initialise:
 # open new terminal
 # cd tailwindcss
 # ./tailwindcss init
+#inside tailwindcss, update config --> content: ["../templates/**/*.{html, js}"],
 # ./tailwindcss -i ./input.css -o ../static/output.css --watch
