@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="min-h-screen flex items-center justify-center">
+<div class="min-h-screen flex items-center justify-center" id="signupForm">
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h2 class="text-2xl font-bold mb-6 text-center">Sign Up</h2>
         
@@ -13,7 +13,7 @@
         
         <form 
             hx-post="/auth/signup" 
-            hx-target="this" 
+            hx-target="#signupForm" 
             hx-swap="outerHTML"
             class="space-y-4"
         >
