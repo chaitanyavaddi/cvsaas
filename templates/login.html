@@ -18,7 +18,7 @@
         {% endif %}
         
         <form 
-            hx-post="/login" 
+            hx-post="/auth/login" 
             hx-target="this" 
             hx-swap="outerHTML"
             class="space-y-4"
@@ -48,7 +48,7 @@
                 Login
             </button>
             <div class="text-center mt-4">
-                <a href="/signup" class="text-indigo-600 hover:text-indigo-800">Create an account</a>
+                <a href="/auth/signup" class="text-indigo-600 hover:text-indigo-800">Create an account</a>
             </div>
         </form>
     </div>
