@@ -1,4 +1,5 @@
 from fastapi import Depends, Request, HTTPException, status
+from fastapi.responses import RedirectResponse
 from supabase import Client, create_client
 from dotenv import load_dotenv
 import os
