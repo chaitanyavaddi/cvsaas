@@ -5,7 +5,7 @@ from utils.auth import protected_route
 from .services import get_user_data
 
 users_router = APIRouter()
-templates = Jinja2Templates(directory="templates")
+templates    = Jinja2Templates(directory="templates")
 
 @users_router.get("/profile", response_class=HTMLResponse)
 @protected_route

@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Depends
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from app.auth.routes import auth_router, home_router
 from app.dashboard.routes import dashboard_router
@@ -6,6 +7,8 @@ from app.users.routes import users_router
 from utils.auth import get_current_user
 
 app = FastAPI()
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # CORS configuration
 # app.add_middleware(
