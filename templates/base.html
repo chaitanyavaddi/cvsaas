@@ -2,9 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>{% block title %}HTMX Supabase Login{% endblock %}</title>
+    <title>{% block title %}CVSAAS | Login{% endblock %}</title>
     <script src="https://unpkg.com/htmx.org@1.9.3"></script>
-    <link rel="stylesheet" href="{{ url_for('static', path='output.css') }}" />
+    <!-- <link rel="stylesheet" href="{{ url_for('static', path='output.css') }}" /> -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://preline.co/assets/css/main.min.css">
+    
   </head>
   <body
     class="bg-gray-100 dark:bg-neutral-800"
@@ -12,10 +15,6 @@
       background: url(https://preline.co/assets/svg/examples/polygon-bg-element.svg);
     "
   >
-    <!-- <div class="container mx-auto px-4"> -->
-
     {% block content %}{% endblock %}
-
-    <!-- </div> -->
   </body>
 </html>

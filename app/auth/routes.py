@@ -25,6 +25,7 @@ async def login(request: Request, email: str = Form(...), password: str = Form(.
         response = supabase.auth.sign_in_with_password({"email": email, "password": password})
         redirect = RedirectResponse(url="/dashboard", status_code=status.HTTP_303_SEE_OTHER)
         redirect.set_cookie("user_session", response.session.access_token, httponly=True, secure=True, samesite='lax')
+        
         return redirect
     except Exception as e:
         return templates.TemplateResponse("login.html", {"request": request, "error": "Invalid credentials"})
