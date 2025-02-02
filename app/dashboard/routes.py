@@ -17,3 +17,9 @@ async def dashboard(request: Request, user: dict):
 async def dashboard_profile(request: Request, user: dict):
     return templates.TemplateResponse("/dashboard/profile.html", {"request": request, "user": user.user})
 
+
+@dashboard_router.get("/billing", response_class=HTMLResponse)
+@protected_route
+async def dashboard_profile(request: Request, user: dict):
+    return templates.TemplateResponse("/dashboard/billing.html", {"request": request, "user": user.user})
+
