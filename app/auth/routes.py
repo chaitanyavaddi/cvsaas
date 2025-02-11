@@ -68,17 +68,20 @@ home_router = APIRouter()
 templates = Jinja2Templates(directory="templates")
 
 # Cache template responses
-@lru_cache(maxsize=20)
+# @lru_cache(maxsize=20)
 def get_template_response(template_name: str):
     return templates.get_template(template_name)
 
 @home_router.get("/", response_class=HTMLResponse)
 async def home_page(request: Request):
-    return RedirectResponse(
-        url="/auth/login",
-        status_code=status.HTTP_303_SEE_OTHER
+    # return RedirectResponse(
+    #     url="/auth/login",
+    #     status_code=status.HTTP_303_SEE_OTHER
+    # )
+    template = get_template_response("index.html")
+    return HTMLResponse(
+        template.render({"request": request})
     )
-
 @auth_router.get("/login", response_class=HTMLResponse)
 async def login_page(request: Request):
     user = await get_current_user(request)
