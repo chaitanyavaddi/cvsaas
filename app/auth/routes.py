@@ -68,7 +68,7 @@ home_router = APIRouter()
 templates = Jinja2Templates(directory="templates")
 
 # Cache template responses
-# @lru_cache(maxsize=20)
+@lru_cache(maxsize=20)
 def get_template_response(template_name: str):
     return templates.get_template(template_name)
 
