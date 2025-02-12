@@ -74,14 +74,11 @@ def get_template_response(template_name: str):
 
 @home_router.get("/", response_class=HTMLResponse)
 async def home_page(request: Request):
-    # return RedirectResponse(
-    #     url="/auth/login",
-    #     status_code=status.HTTP_303_SEE_OTHER
-    # )
-    template = get_template_response("index.html")
-    return HTMLResponse(
-        template.render({"request": request})
+    return RedirectResponse(
+        url="/auth/login",
+        status_code=status.HTTP_303_SEE_OTHER
     )
+
 @auth_router.get("/login", response_class=HTMLResponse)
 async def login_page(request: Request):
     user = await get_current_user(request)
