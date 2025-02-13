@@ -59,7 +59,7 @@ To run this project, you will need to add the following environment variables to
    npm i
 ```
 
-6. If you see 0 vulnarabilitie, start the build
+6. If you see 0 vulnerabilities, start the build
 
 ```bash
    npm run build
