@@ -47,28 +47,28 @@ To run this project, you will need to add the following environment variables to
 ```bash
   pip install -r requirements.txt
 ```
+4. In New Terminal
 
-4. Start the server
+```bash
+   cd tailwindcss
+```
+
+5. Install dependencies
+
+```bash
+   npm i
+```
+
+6. If you see 0 vulnarabilitie, start the build
+
+```bash
+   npm run build
+```
+7. In another terminal, start the server
 
 ```bash
   fastapi dev
 ```
-
-### Running Tailwind Build 
-
-5. Open a New Terminal and change to the tailwindcss directory
-
-```bash
-  cd tailwindcss
-```
-
-6. Run the tailwind build command
-
-```bash
-  ./tailwindcss -i ./input.css -o ../static/output.css --watch
-```
-
-7. Add 'tailwindcss' to the .gitignore file. We don't need to commit the tailwindcss folder, as it only contains the standalone .exe, config, and input.css file. The command in step 6 will automatically export the required css file (output.css) to the static folder at the root directory.
 
 ### Structure
 ```app/```: App modules \
@@ -79,19 +79,70 @@ To run this project, you will need to add the following environment variables to
 ```templates/```: HTML \
 ```static/```: CSS, JS \
 ```tailwindcss/```: Tailwind config, build
+
 ## Authors
 
 - [@chaitanyavaddi](https://www.github.com/chaitanyavaddi)
 
+The above setup should keep the boilerplate working. 
 
-## Setting Up Framework From Scratch
+## Method 1: Setting Up Framework From Scratch
 
 Installing Python, and requirements using pip is all same.
 
-I'd like to write about how I did setup tailwind for the first time.
+I'd like to keep a note for myself on about how I did setup all of this for the first time.
 
 ### Notes
 
+1. Create tailwindcss folder for local build process
+```bash
+  mkdir tailwindcss
+  cd tailwindcss
+  npm init -y
+  npm install -D tailwindcss@3.4.1
+  npx tailwindcss init
+  npm install -D @tailwindcss/forms 
+```
+2. Add preline & tailwind forms plugins inside tailwind.config.js
+
+```bash
+  require('preline/plugin')
+  require('@tailwindcss/forms')
+```
+
+3. Copy preline.js from nodemodules/preline/preline.js to static/js
+
+```bash
+  cp tailwindcss/node_modules/preline/dist/preline.js static/js/
+```
+3. Update 'content' inside tailwind.config.js as below
+```bash
+content: [
+    "../templates/**/*.{html, js}",
+    'node_modules/preline/dist/*.js',
+    '../static/js/*.js',
+  ],
+```
+
+The final tailwind config should look like:
+```
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "../templates/**/*.{html, js}",
+    'node_modules/preline/dist/*.js',
+    '../static/js/*.js',
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('preline/plugin'),
+  ],
+}
+```
+### Method 2: To do it with tailwind exe file:
 - Download Tailwind standalone v3 ```.exe``` from https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.4.16
 - Create folder at root with name - ```tailwindcss``` and put the file inside
 - Rename the ```.exe``` to ```tailwindcss```
