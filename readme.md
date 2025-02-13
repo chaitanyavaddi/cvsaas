@@ -5,13 +5,11 @@ This repository is a SaaS boilerplate code built with HTMX, FastAPI, Jinja2, and
 
 
 
-
-
 ## Tech Stack
 
-**Client:** HTMX, JINJA2, TailwindCSS
+**Client:** Preline UI, HTMX, JINJA2, TailwindCSS
 
-**Server:** FASTAPI
+**Server:** Python, FASTAPI
 
 **DB:** Supabase
 
