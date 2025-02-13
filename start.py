@@ -218,11 +218,11 @@ SUPABASE_KEY={key}
     print("\n.env file created successfully!")
 
 def main():
-    print_banner()
     check_python_version()
     create_env_file()
     create_virtual_env()
     install_requirements()
+    print_banner()
     setup_tailwind()
     
 
