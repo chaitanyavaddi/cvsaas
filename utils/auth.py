@@ -1,12 +1,20 @@
 from functools import lru_cache
 from fastapi import Depends, Request, HTTPException, status
 from fastapi.responses import RedirectResponse
+from fastapi.templating import Jinja2Templates
 from supabase import Client, create_client
 from dotenv import load_dotenv
 import os
 from typing import Optional
 
 load_dotenv()
+
+templates = Jinja2Templates(directory="templates")
+
+# Cache template responses
+# @lru_cache(maxsize=20)
+def get_template_response(template_name: str):
+    return templates.get_template(template_name)
 
 @lru_cache()
 def get_supabase_client() -> Client:

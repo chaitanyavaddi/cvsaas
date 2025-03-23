@@ -1,0 +1,73 @@
+2025-03-23 15:53:56,965 - uvicorn.error - INFO - Started server process [43992]
+2025-03-23 15:53:56,975 - uvicorn.error - INFO - Waiting for application startup.
+2025-03-23 15:53:56,980 - uvicorn.error - INFO - Application startup complete.
+2025-03-23 17:08:38,500 - uvicorn.error - ERROR - Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\starlette\applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+    raise exc
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\starlette\middleware\gzip.py", line 20, in __call__
+    await responder(scope, receive, send)
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\starlette\middleware\gzip.py", line 39, in __call__
+    await self.app(scope, receive, self.send_with_gzip)
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\app\auth\routes.py", line 39, in login_page
+    template = get_template_response("login.html")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\app\auth\routes.py", line 15, in get_template_response
+    return templates.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\starlette\templating.py", line 131, in get_template
+    return self.env.get_template(name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cvaddisriram\Projects\medha_ai\medha_ai\venv\Lib\site-packages\jinja2\loaders.py", line 209, in get_source
+    raise TemplateNotFound(
+jinja2.exceptions.TemplateNotFound: 'login.html' not found in search path: 'templates'
