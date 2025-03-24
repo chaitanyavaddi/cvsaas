@@ -13,33 +13,33 @@ templates = Jinja2Templates(directory="templates")
 # READ - List all batches
 @router.get("/", response_class=HTMLResponse)
 async def list_batches(request: Request):
-    user = await get_current_user(request)
-    if not user:
-        return RedirectResponse(url="/auth/login", status_code=status.HTTP_303_SEE_OTHER)
+    # user = await get_current_user(request)
+    # if not user:
+    #     return RedirectResponse(url="/auth/login", status_code=status.HTTP_303_SEE_OTHER)
     
-    supabase = get_supabase_client()
+    # supabase = get_supabase_client()
     
     # Get all batches
-    result = supabase.table("batches").select(
-        "id, name, created_at"
-    ).eq("created_by", user["id"]).execute()
+    # result = supabase.table("batches").select(
+    #     "id, name, created_at"
+    # ).eq("created_by", user["id"]).execute()
     
-    batches = result.data
+    # batches = result.data
     
-    # Get student count for each batch
-    for batch in batches:
-        count_result = supabase.table("batch_students").select(
-            "student_id", count="exact"
-        ).eq("batch_id", batch["id"]).execute()
+    # # Get student count for each batch
+    # for batch in batches:
+    #     count_result = supabase.table("batch_students").select(
+    #         "student_id", count="exact"
+    #     ).eq("batch_id", batch["id"]).execute()
         
-        batch["student_count"] = count_result.count
+    #     batch["student_count"] = count_result.count
     
-    template = get_template_response(templates, "batches/list.html")
+    template = get_template_response("dashboard/new-student.html")
     return HTMLResponse(
         template.render({
             "request": request,
-            "batches": batches,
-            "user": user
+            # "batches": batches,
+            # "user": user
         })
     )
 
